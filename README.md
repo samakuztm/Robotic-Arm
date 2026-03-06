@@ -68,5 +68,11 @@ The base is driven by a stepper motor to allow controlled rotation and positioni
 
 The 3S LiPo powers the system to ensure the servos get enough current during movement, since high-torque servos can draw a lot under load.
 
+**How to use this project**
+
+You can use this robotic arm to automate any task you desire. You could also manually control it VIA your computer speaking to the ESP32 motherboard. This happens through wifi connection, and can be controlled through your keyboard. 
+
+<img width="566" height="388" alt="Screenshot 2026-03-05 145655" src="https://github.com/user-attachments/assets/b3d800f5-e1f4-4c37-b75d-c275e6efef56" />
+
 
 
