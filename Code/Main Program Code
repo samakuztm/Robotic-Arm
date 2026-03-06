@@ -1,0 +1,55 @@
+#include
+
+Servo baseServo;
+Servo shoulderServo;
+Servo elbowServo;
+Servo gripperServo;
+
+int basePos = 90;
+int shoulderPos = 90;
+int elbowPos = 90;
+int gripperPos = 90;
+
+void setup() {
+Serial.begin(115200);
+
+baseServo.attach(13);
+shoulderServo.attach(12);
+elbowServo.attach(14);
+gripperServo.attach(27);
+
+baseServo.write(basePos);
+shoulderServo.write(shoulderPos);
+elbowServo.write(elbowPos);
+gripperServo.write(gripperPos);
+}
+
+void loop() {
+
+if (Serial.available()) {
+char key = Serial.read();
+
+if (key == 'a') basePos += 5;
+if (key == 'd') basePos -= 5;
+
+if (key == 'w') shoulderPos += 5;
+if (key == 's') shoulderPos -= 5;
+
+if (key == 'i') elbowPos += 5;
+if (key == 'k') elbowPos -= 5;
+
+if (key == 'o') gripperPos += 5;
+if (key == 'l') gripperPos -= 5;
+
+basePos = constrain(basePos, 0, 180);
+shoulderPos = constrain(shoulderPos, 0, 180);
+elbowPos = constrain(elbowPos, 0, 180);
+gripperPos = constrain(gripperPos, 0, 180);
+
+baseServo.write(basePos);
+shoulderServo.write(shoulderPos);
+elbowServo.write(elbowPos);
+gripperServo.write(gripperPos);
+}
+
+}
